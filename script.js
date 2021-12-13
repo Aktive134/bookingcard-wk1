@@ -89,14 +89,36 @@ function isEmail(email) {
 let addBtn = document.getElementById("plus");
 let subBtn = document.getElementById("minus");
 let qtyBtn = document.getElementById("qtyBox");
+let textChange = document.getElementById("person");
+let newText = "persons";
+let oldText = "person";
+let count = 0;
 
 addBtn.addEventListener("click", () => {
   qtyBtn.value = parseInt(qtyBtn.value) + 1;
+
+  if (qtyBtn.value >= 2) {
+    textChange.textContent = newText;
+  } else {
+    textChange.textContent = oldText;
+  }
 });
 subBtn.addEventListener("click", () => {
   if (qtyBtn.value <= 0) {
     qtyBtn = 0;
+  } else if (qtyBtn.value < 2) {
+    textChange.textContent = oldText;
   } else {
     qtyBtn.value = parseInt(qtyBtn.value) - 1;
   }
 });
+
+// function increment() {
+//   count += 1;
+//   qtyBtn.textContent = count;
+//   if (count >= 2) {
+//     textChange.textContent = newText;
+//   } else {
+//     textChange.textContent = oldText;
+//   }
+// }
